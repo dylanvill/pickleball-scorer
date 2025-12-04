@@ -4,20 +4,24 @@ import { LuTarget, LuUsers } from "react-icons/lu";
 export interface OnboardingStepsProps {
   playersComponent: React.ReactNode;
   firstServerComponent: React.ReactNode;
+  activeTab?: "players" | "firstServer";
 }
 
 function OnboardingSteps({
   playersComponent,
   firstServerComponent,
+  activeTab,
 }: OnboardingStepsProps) {
+  const disableFirstServerTab = !activeTab || activeTab === "players";
+
   return (
-    <Tabs.Root defaultValue="players" fitted>
+    <Tabs.Root value={activeTab} fitted>
       <Tabs.List>
         <Tabs.Trigger value="players">
           <LuUsers />
           Players
         </Tabs.Trigger>
-        <Tabs.Trigger value="firstServer">
+        <Tabs.Trigger value="firstServer" disabled={disableFirstServerTab}>
           <LuTarget />
           First Server
         </Tabs.Trigger>
