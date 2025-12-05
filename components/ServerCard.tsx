@@ -8,7 +8,7 @@ export interface ServerCardProps {
 
 function ServerCard({ value, label }: ServerCardProps) {
   return (
-    <RadioCard.Item value={value}>
+    <RadioCard.Item value={String(value)}>
       <RadioCard.ItemHiddenInput />
       <RadioCard.ItemControl>
         <RadioCard.ItemText>{label}</RadioCard.ItemText>

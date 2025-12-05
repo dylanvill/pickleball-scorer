@@ -1,20 +1,35 @@
-import { Button, RadioCard, Stack } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { Box, Button, Heading, RadioCard, Stack } from "@chakra-ui/react";
+import { useMemo, useState } from "react";
 import ServerCard from "./ServerCard";
-
-const items = [
-  { value: "next", title: "Next.js" },
-  { value: "vite", title: "Vite" },
-  { value: "astro", title: "Astro" },
-  { value: "astro2", title: "Astro2" },
-];
+import useTeam from "../store/useTeam";
+import { PlayerNumber } from "../store/useTeam/types/Player";
+import { TeamKey } from "../store/useTeam/types/Team";
 
 export interface OnBackClickedProps {
   onBackClicked: () => void;
 }
 
+interface Selection {
+  teamKey: TeamKey;
+  name: string;
+  players: { playerNumber: PlayerNumber; name: string }[];
+}
+
 function ServerStep({ onBackClicked }: OnBackClickedProps) {
   const [server, setServer] = useState<null | string>(null);
+
+  const { teams } = useTeam();
+
+  const formatted = useMemo<Selection[]>(() => {
+    return Object.entries(teams).map(([teamKey, team]) => ({
+      teamKey: teamKey as TeamKey,
+      name: team.name,
+      players: Object.entries(team.players).map(([playerNumber, player]) => ({
+        playerNumber: Number(playerNumber) as PlayerNumber,
+        name: player.name,
+      })),
+    }));
+  }, [teams]);
 
   const handleOnBackClicked = () => {
     setServer(null);
@@ -28,13 +43,22 @@ function ServerStep({ onBackClicked }: OnBackClickedProps) {
         onValueChange={(e) => setServer(e.value)}
         variant="solid"
         colorPalette="green">
-        <Stack>
-          {items.map((item) => (
-            <ServerCard
-              key={item.value}
-              value={item.value}
-              label={item.title}
-            />
+        <Stack gap={8}>
+          {formatted.map((team) => (
+            <Box key={team.name}>
+              <Heading size="2xl" mb={1} textAlign="center">
+                {team.name}
+              </Heading>
+              <Stack>
+                {team.players.map((player) => (
+                  <ServerCard
+                    key={`${team.teamKey}-${player.name}`}
+                    value={`${team.teamKey}-${player.name}`}
+                    label={player.name}
+                  />
+                ))}
+              </Stack>
+            </Box>
           ))}
         </Stack>
       </RadioCard.Root>
