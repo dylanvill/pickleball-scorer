@@ -10,11 +10,16 @@ const items = [
 ];
 
 export interface OnBackClickedProps {
-  onBackClicked?: () => void;
+  onBackClicked: () => void;
 }
 
 function ServerStep({ onBackClicked }: OnBackClickedProps) {
   const [server, setServer] = useState<null | string>(null);
+
+  const handleOnBackClicked = () => {
+    setServer(null);
+    onBackClicked();
+  };
 
   return (
     <div>
@@ -40,7 +45,7 @@ function ServerStep({ onBackClicked }: OnBackClickedProps) {
         variant="ghost"
         width="full"
         marginTop={2}
-        onClick={onBackClicked}>
+        onClick={handleOnBackClicked}>
         Back
       </Button>
     </div>
