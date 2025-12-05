@@ -6,6 +6,7 @@ import OnboardingSteps, {
 } from "../components/OnboardingSteps";
 import TeamStep from "../components/TeamStep";
 import { useState } from "react";
+import ServerStep from "../components/ServerStep";
 
 type ActiveTab = OnboardingStepsProps["activeTab"];
 
@@ -18,7 +19,9 @@ export default function Home() {
         playersComponent={
           <TeamStep onSubmit={() => setActiveTab("firstServer")} />
         }
-        firstServerComponent={<div>First Server Component</div>}
+        firstServerComponent={
+          <ServerStep onBackClicked={() => setActiveTab("players")} />
+        }
         activeTab={activeTab}
       />
     </Box>
