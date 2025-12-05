@@ -52,8 +52,8 @@ function ServerStep({ onBackClicked }: OnBackClickedProps) {
               <Stack>
                 {team.players.map((player) => (
                   <ServerCard
-                    key={`${team.teamKey}-${player.name}`}
-                    value={`${team.teamKey}-${player.name}`}
+                    key={`${team.teamKey}-${player.playerNumber}`}
+                    value={`${team.teamKey}-${player.playerNumber}`}
                     label={player.name}
                   />
                 ))}
