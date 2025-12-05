@@ -1,6 +1,5 @@
 "use client";
 
-import { Box } from "@chakra-ui/react";
 import OnboardingTabs, {
   OnboardingTabsProps,
 } from "../components/OnboardingTabs";
@@ -18,21 +17,17 @@ export default function Home() {
   };
 
   return (
-    <Box p={4} backgroundColor="bg.subtle" height="full" minHeight="100vh">
-      <OnboardingTabs
-        playersComponent={
-          <PlayersTabContent
-            onNextClicked={() => setActiveTab("firstServer")}
-          />
-        }
-        firstServerComponent={
-          <FirstServerTabContent
-            onStartGameClicked={handleStartGameClicked}
-            onBackClicked={() => setActiveTab("players")}
-          />
-        }
-        activeTab={activeTab}
-      />
-    </Box>
+    <OnboardingTabs
+      playersComponent={
+        <PlayersTabContent onNextClicked={() => setActiveTab("firstServer")} />
+      }
+      firstServerComponent={
+        <FirstServerTabContent
+          onStartGameClicked={handleStartGameClicked}
+          onBackClicked={() => setActiveTab("players")}
+        />
+      }
+      activeTab={activeTab}
+    />
   );
 }

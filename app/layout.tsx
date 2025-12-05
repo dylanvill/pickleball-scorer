@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Provider } from "../components/ui/provider";
+import { Box } from "@chakra-ui/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +27,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Provider>{children}</Provider>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Provider>
+          <Box
+            p={4}
+            backgroundColor="bg.subtle"
+            height="full"
+            minHeight="100vh">
+            {children}
+          </Box>
+        </Provider>
       </body>
     </html>
   );
