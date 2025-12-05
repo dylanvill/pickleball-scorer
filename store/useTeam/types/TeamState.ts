@@ -1,5 +1,7 @@
 import { Team, TeamKey } from "./Team";
 
-type TeamState = Record<TeamKey, Team>;
+interface TeamState {
+  teams: Record<TeamKey, Team>;
+}
 
 export default TeamState;

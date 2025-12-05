@@ -2,22 +2,24 @@ import { create } from "zustand";
 import { Team, TeamKey } from "./types/Team";
 import { PlayerNumber } from "./types/Player";
 import TeamState from "./types/TeamState";
-import TeamActions from "./types/TeamAction";
+import TeamActions from "./types/TeamActions";
 
 const initialState: TeamState = {
-  A: {
-    name: "Team A",
-    players: [
-      { id: 0, name: "" },
-      { id: 1, name: "" },
-    ],
-  },
-  B: {
-    name: "Team B",
-    players: [
-      { id: 0, name: "" },
-      { id: 1, name: "" },
-    ],
+  teams: {
+    A: {
+      name: "Team A",
+      players: [
+        { id: 0, name: "" },
+        { id: 1, name: "" },
+      ],
+    },
+    B: {
+      name: "Team B",
+      players: [
+        { id: 0, name: "" },
+        { id: 1, name: "" },
+      ],
+    },
   },
 };
 
@@ -25,7 +27,7 @@ const useTeam = create<TeamState & TeamActions>((set) => ({
   ...initialState,
   setPlayerName: (team: TeamKey, playerNumber: PlayerNumber, name: string) => {
     set((state: TeamState) => {
-      const targetTeam = { ...state[team] };
+      const targetTeam = { ...state.teams[team] };
 
       const targetPlayer = targetTeam.players[playerNumber];
       const updatedPlayer = { ...targetPlayer, name: name };
@@ -38,7 +40,10 @@ const useTeam = create<TeamState & TeamActions>((set) => ({
 
       return {
         ...state,
-        [team]: updatedTeam,
+        teams: {
+          ...state.teams,
+          [team]: updatedTeam,
+        },
       };
     });
   },
