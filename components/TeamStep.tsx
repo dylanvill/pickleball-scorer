@@ -1,4 +1,4 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Button, Stack } from "@chakra-ui/react";
 import TeamForm from "./TeamForm";
 
 export interface TeamStepProps {
@@ -8,10 +8,10 @@ export interface TeamStepProps {
 function TeamStep({ onSubmit }: TeamStepProps) {
   return (
     <>
-      <Box marginBottom={6}>
+      <Stack>
         <TeamForm name="A" />
-      </Box>
-      <TeamForm name="B" />
+        <TeamForm name="B" />
+      </Stack>
       <Button variant="solid" width="full" marginTop={6} onClick={onSubmit}>
         Next
       </Button>

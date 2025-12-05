@@ -10,7 +10,7 @@ function TeamForm({ name }: TeamFormProps) {
   const formattedTeamName = `Team ${name}`;
 
   return (
-    <Card.Root  >
+    <Card.Root >
       <Card.Header>
         <Heading size="2xl" mb={1} textAlign="center">
           {formattedTeamName}
