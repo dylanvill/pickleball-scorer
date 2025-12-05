@@ -15,8 +15,8 @@ const initialState: MatchState = {
       A: 0,
       B: 0,
     },
-    history: [],
   },
+  history: [],
 };
 
 const useMatch = create<MatchState & MatchActions>((set) => ({
