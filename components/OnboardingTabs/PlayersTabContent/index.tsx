@@ -3,15 +3,15 @@ import TeamForm from "./TeamForm";
 import useTeam from "../../../store/useTeam";
 
 export interface PlayersTabContentProps {
-  onSubmit: () => void;
+  onNextClicked: () => void;
 }
 
-function PlayersTabContent({ onSubmit }: PlayersTabContentProps) {
+function PlayersTabContent({ onNextClicked }: PlayersTabContentProps) {
   const { setDefaultPlayerNames } = useTeam();
 
   const handleOnSubmit = () => {
     setDefaultPlayerNames();
-    onSubmit();
+    onNextClicked();
   };
 
   return (

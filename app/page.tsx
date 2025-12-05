@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react";
 import OnboardingTabs, {
   OnboardingTabsProps,
 } from "../components/OnboardingTabs";
-import TeamStep from "../components/OnboardingTabs/PlayersTabContent";
+import PlayersTabContent from "../components/OnboardingTabs/PlayersTabContent";
 import { useState } from "react";
 import ServerStep from "../components/ServerStep";
 
@@ -17,7 +17,9 @@ export default function Home() {
     <Box p={4} backgroundColor="bg.subtle" height="full" minHeight="100vh">
       <OnboardingTabs
         playersComponent={
-          <TeamStep onSubmit={() => setActiveTab("firstServer")} />
+          <PlayersTabContent
+            onNextClicked={() => setActiveTab("firstServer")}
+          />
         }
         firstServerComponent={
           <ServerStep onBackClicked={() => setActiveTab("players")} />
