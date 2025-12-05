@@ -9,8 +9,17 @@ export interface TeamFormProps {
 function TeamForm({ name }: TeamFormProps) {
   const formattedTeamName = `Team ${name}`;
 
+  const handlePlayerNameChanged = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    playerNumber: number
+  ) => {
+    console.log(
+      `Team ${name} - Player ${playerNumber} name changed to: ${e.target.value}`
+    );
+  };
+
   return (
-    <Card.Root >
+    <Card.Root>
       <Card.Header>
         <Heading size="2xl" mb={1} textAlign="center">
           {formattedTeamName}
@@ -19,11 +28,17 @@ function TeamForm({ name }: TeamFormProps) {
       <Card.Body>
         <Field.Root marginBottom={4}>
           <Field.Label>Player 1:</Field.Label>
-          <Input placeholder={`${name}1 (optional)`} />
+          <Input
+            placeholder={`${name}1 (optional)`}
+            onChange={(e) => handlePlayerNameChanged(e, 1)}
+          />
         </Field.Root>
         <Field.Root>
           <Field.Label>Player 2:</Field.Label>
-          <Input placeholder={`${name}2 (optional)`} />
+          <Input
+            placeholder={`${name}2 (optional)`}
+            onChange={(e) => handlePlayerNameChanged(e, 2)}
+          />
         </Field.Root>
       </Card.Body>
     </Card.Root>
