@@ -9,15 +9,15 @@ const setDefaultPlayerNames =
         A: {
           ...state.teams.A,
           players: {
-            1: { name: "A1" },
-            2: { name: "A2" },
+            1: { name: state.teams.A.players[1].name || "A1" },
+            2: { name: state.teams.A.players[2].name || "A2" },
           },
         },
         B: {
           ...state.teams.B,
           players: {
-            1: { name: "B1" },
-            2: { name: "B2" },
+            1: { name: state.teams.B.players[1].name || "B1" },
+            2: { name: state.teams.B.players[2].name || "B2" },
           },
         },
       },
