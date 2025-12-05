@@ -1,4 +1,4 @@
-import { MatchState } from "../types/MatchState";
+import MatchState from "../types/MatchState";
 
 const scorePoint =
   () =>

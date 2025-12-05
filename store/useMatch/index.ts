@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import MatchActions from "./types/MatchActions";
-import { MatchState } from "./types/MatchState";
+import MatchState from "./types/MatchState";
 import startMatch from "./actions/startMatch";
 import scorePoint from "./actions/scorePoint";
 import missPoint from "./actions/missPoint";
@@ -15,6 +15,7 @@ const initialState: MatchState = {
       A: 0,
       B: 0,
     },
+    history: [],
   },
 };
 

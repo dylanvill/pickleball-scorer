@@ -1,5 +1,5 @@
 import { TeamKey } from "../../useTeam/types/Team";
-import { MatchState } from "../types/MatchState";
+import MatchState from "../types/MatchState";
 
 const startMatch =
   (startingServer: TeamKey) =>
