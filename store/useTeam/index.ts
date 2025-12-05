@@ -5,14 +5,14 @@ import TeamState from "./types/TeamState";
 import TeamActions from "./types/TeamAction";
 
 const initialState: TeamState = {
-  teamA: {
+  A: {
     name: "Team A",
     players: [
       { id: 0, name: "" },
       { id: 1, name: "" },
     ],
   },
-  teamB: {
+  B: {
     name: "Team B",
     players: [
       { id: 0, name: "" },

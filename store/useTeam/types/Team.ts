@@ -1,6 +1,6 @@
 import { Player } from "./Player";
 
-export type TeamKey = "teamA" | "teamB";
+export type TeamKey = "A" | "B";
 export type TeamName = "Team A" | "Team B";
 
 export interface Team {
