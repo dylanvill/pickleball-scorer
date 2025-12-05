@@ -1,12 +1,12 @@
 import { Button, Stack } from "@chakra-ui/react";
 import TeamForm from "./TeamForm";
-import useTeam from "../store/useTeam";
+import useTeam from "../../../store/useTeam";
 
-export interface TeamStepProps {
+export interface PlayersTabContentProps {
   onSubmit: () => void;
 }
 
-function TeamStep({ onSubmit }: TeamStepProps) {
+function PlayersTabContent({ onSubmit }: PlayersTabContentProps) {
   const { setDefaultPlayerNames } = useTeam();
 
   const handleOnSubmit = () => {
@@ -34,4 +34,4 @@ function TeamStep({ onSubmit }: TeamStepProps) {
   );
 }
 
-export default TeamStep;
+export default PlayersTabContent;

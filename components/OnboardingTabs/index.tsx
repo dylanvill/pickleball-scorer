@@ -1,17 +1,17 @@
 import { Tabs } from "@chakra-ui/react";
 import { LuTarget, LuUsers } from "react-icons/lu";
 
-export interface OnboardingStepsProps {
+export interface OnboardingTabsProps {
   playersComponent: React.ReactNode;
   firstServerComponent: React.ReactNode;
   activeTab?: "players" | "firstServer";
 }
 
-function OnboardingSteps({
+function OnboardingTabs({
   playersComponent,
   firstServerComponent,
   activeTab,
-}: OnboardingStepsProps) {
+}: OnboardingTabsProps) {
   const disableFirstServerTab = !activeTab || activeTab === "players";
 
   return (
@@ -32,4 +32,4 @@ function OnboardingSteps({
   );
 }
 
-export default OnboardingSteps;
+export default OnboardingTabs;
