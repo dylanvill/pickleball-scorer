@@ -10,7 +10,7 @@ const startMatch =
         ...state.match,
         isActive: true,
         currentServer: 2,
-        ballPosession: startingServer,
+        ballPossession: startingServer,
         points: {
           A: 0,
           B: 0,
