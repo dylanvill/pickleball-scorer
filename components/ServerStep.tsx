@@ -41,7 +41,7 @@ function ServerStep({ onBackClicked }: OnBackClickedProps) {
       <RadioCard.Root
         value={server}
         onValueChange={(e) => setServer(e.value)}
-        variant="solid"
+        variant="outline"
         colorPalette="green">
         <Stack gap={8}>
           {formatted.map((team) => (
