@@ -1,9 +1,9 @@
-import { Player } from "./Player";
+import { Player, PlayerNumber } from "./Player";
 
 export type TeamKey = "A" | "B";
 export type TeamName = "Team A" | "Team B";
 
 export interface Team {
   name: TeamName;
-  players: [Player, Player];
+  players: Record<PlayerNumber, Player>;
 }

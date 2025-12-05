@@ -8,17 +8,17 @@ const initialState: TeamState = {
   teams: {
     A: {
       name: "Team A",
-      players: [
-        { id: 0, name: "" },
-        { id: 1, name: "" },
-      ],
+      players: {
+        1: { name: "" },
+        2: { name: "" },
+      },
     },
     B: {
       name: "Team B",
-      players: [
-        { id: 0, name: "" },
-        { id: 1, name: "" },
-      ],
+      players: {
+        1: { name: "" },
+        2: { name: "" },
+      },
     },
   },
 };
@@ -34,7 +34,7 @@ const useTeam = create<TeamState & TeamActions>((set) => ({
 
       const updatedTeam: Team = {
         ...targetTeam,
-        players: [...targetTeam.players],
+        players: { ...targetTeam.players },
       };
       updatedTeam.players[playerNumber] = updatedPlayer;
 

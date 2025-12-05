@@ -1,6 +1,5 @@
-export type PlayerNumber = 0 | 1;
+export type PlayerNumber = 1 | 2;
 
 export interface Player {
-  id: PlayerNumber;
   name: string;
 }
