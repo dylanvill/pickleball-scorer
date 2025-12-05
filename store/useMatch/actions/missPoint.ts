@@ -3,7 +3,7 @@ import { MatchState } from "../types/MatchState";
 const missPoint =
   () =>
   (state: MatchState): MatchState => {
-    const currentTeam = state.match.ballPosession!;
+    const currentTeam = state.match.ballPossession!;
     const currentServer = state.match.currentServer!;
 
     const isSecondServer = currentServer === 2;
@@ -14,7 +14,7 @@ const missPoint =
         match: {
           ...state.match,
           currentServer: 1,
-          ballPosession: currentTeam === "A" ? "B" : "A",
+          ballPossession: currentTeam === "A" ? "B" : "A",
         },
       };
     } else {
