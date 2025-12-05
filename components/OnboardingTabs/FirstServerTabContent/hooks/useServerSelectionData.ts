@@ -3,10 +3,14 @@ import useTeam from "../../../../store/useTeam";
 import { TeamKey } from "../../../../store/useTeam/types/Team";
 import { PlayerNumber } from "../../../../store/useTeam/types/Player";
 
+export interface SelectionTeamPlayerInfo {
+  playerNumber: PlayerNumber;
+  name: string;
+}
 export interface SelectionTeam {
   teamKey: TeamKey;
   name: string;
-  players: { playerNumber: PlayerNumber; name: string }[];
+  players: SelectionTeamPlayerInfo[];
 }
 
 export interface ServerSelectionData {

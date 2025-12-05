@@ -13,8 +13,8 @@ type ActiveTab = OnboardingTabsProps["activeTab"];
 export default function Home() {
   const [activeTab, setActiveTab] = useState<ActiveTab>("players");
 
-  const handleStartGameClicked = (teamKey: string, playerNumber: number) => {
-    console.log("Start game with", { teamKey, playerNumber });
+  const handleStartGameClicked = (teamKey: string) => {
+    console.log("Start game with", { teamKey });
   };
 
   return (

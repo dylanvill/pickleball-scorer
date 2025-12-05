@@ -1,13 +1,12 @@
-import { Box, Button, Heading, RadioCard, Stack } from "@chakra-ui/react";
+import { Button, RadioCard, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import ServerCard from "./ServerCard";
 import useServerSelectionData from "./hooks/useServerSelectionData";
 import { TeamKey } from "../../../store/useTeam/types/Team";
-import { PlayerNumber } from "../../../store/useTeam/types/Player";
 
 export interface FirstServerTabContentProps {
   onBackClicked: () => void;
-  onStartGameClicked: (teamKey: TeamKey, playerNumber: PlayerNumber) => void;
+  onStartGameClicked: (teamKey: TeamKey) => void;
 }
 
 function FirstServerTabContent({
@@ -27,12 +26,7 @@ function FirstServerTabContent({
   };
 
   const handleStartClicked = () => {
-    const [teamKey, playerNumber] = selectedServer!.split("-");
-
-    onStartGameClicked(
-      teamKey as TeamKey,
-      Number(playerNumber) as PlayerNumber
-    );
+    onStartGameClicked(selectedServer as TeamKey);
   };
 
   return (
@@ -42,22 +36,14 @@ function FirstServerTabContent({
         onValueChange={(e) => handleServerChanged(e.value)}
         variant="outline"
         colorPalette="green">
-        <Stack gap={8}>
+        <Stack gap={4}>
           {selection.map((team) => (
-            <Box key={team.name}>
-              <Heading size="2xl" mb={1} textAlign="center">
-                {team.name}
-              </Heading>
-              <Stack>
-                {team.players.map((player) => (
-                  <ServerCard
-                    key={`${team.teamKey}-${player.playerNumber}`}
-                    value={`${team.teamKey}-${player.playerNumber}`}
-                    label={player.name}
-                  />
-                ))}
-              </Stack>
-            </Box>
+            <ServerCard
+              key={team.teamKey}
+              teamKey={team.teamKey}
+              teamName={team.name}
+              players={team.players}
+            />
           ))}
         </Stack>
       </RadioCard.Root>
