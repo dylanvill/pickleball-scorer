@@ -1,22 +1,35 @@
 import { Heading, Input } from "@chakra-ui/react";
 import { Field } from "@chakra-ui/react";
 import { Card } from "@chakra-ui/react";
+import { TeamKey } from "../store/useTeam/types/Team";
+import { PlayerNumber } from "../store/useTeam/types/Player";
+import useTeam from "../store/useTeam";
+import { useMemo } from "react";
 
 export interface TeamFormProps {
-  name: string;
+  teamKey: TeamKey;
 }
 
-function TeamForm({ name }: TeamFormProps) {
-  const formattedTeamName = `Team ${name}`;
+function TeamForm({ teamKey }: TeamFormProps) {
+  const teams = useTeam((state) => state.teams);
+
+  const setPlayerName = useTeam((state) => state.setPlayerName);
 
   const handlePlayerNameChanged = (
     e: React.ChangeEvent<HTMLInputElement>,
-    playerNumber: number
+    playerNumber: PlayerNumber
   ) => {
-    console.log(
-      `Team ${name} - Player ${playerNumber} name changed to: ${e.target.value}`
-    );
+    setPlayerName(teamKey, playerNumber, e.target.value);
   };
+
+  const { player1, player2 } = useMemo(() => {
+    return {
+      player1: teams[teamKey].players[1].name,
+      player2: teams[teamKey].players[2].name,
+    };
+  }, [teams, teamKey]);
+
+  const formattedTeamName = `Team ${teamKey}`;
 
   return (
     <Card.Root>
@@ -29,14 +42,16 @@ function TeamForm({ name }: TeamFormProps) {
         <Field.Root marginBottom={4}>
           <Field.Label>Player 1:</Field.Label>
           <Input
-            placeholder={`${name}1 (optional)`}
+            value={player1}
+            placeholder={`${teamKey}1 (optional)`}
             onChange={(e) => handlePlayerNameChanged(e, 1)}
           />
         </Field.Root>
         <Field.Root>
           <Field.Label>Player 2:</Field.Label>
           <Input
-            placeholder={`${name}2 (optional)`}
+            value={player2}
+            placeholder={`${teamKey}2 (optional)`}
             onChange={(e) => handlePlayerNameChanged(e, 2)}
           />
         </Field.Root>

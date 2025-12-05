@@ -6,11 +6,12 @@ export interface TeamStepProps {
 }
 
 function TeamStep({ onSubmit }: TeamStepProps) {
+
   return (
     <>
       <Stack>
-        <TeamForm name="A" />
-        <TeamForm name="B" />
+        <TeamForm teamKey="A" />
+        <TeamForm teamKey="B" />
       </Stack>
       <Button variant="solid" width="full" marginTop={6} onClick={onSubmit}>
         Next
