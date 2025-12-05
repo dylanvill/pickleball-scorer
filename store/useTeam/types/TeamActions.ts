@@ -8,6 +8,8 @@ interface TeamActions {
     playerNumber: PlayerNumber,
     name: string
   ) => void;
+  /** Sets the player names to their default values */
+  setDefaultPlayerNames: () => void;
 }
 
 export default TeamActions;
