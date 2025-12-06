@@ -1,5 +1,4 @@
 import { TeamKey } from "../../useTeam/types/Team";
-import { withHistory } from "../helpers/withHistory";
 import MatchState from "../types/MatchState";
 
 const startMatch =

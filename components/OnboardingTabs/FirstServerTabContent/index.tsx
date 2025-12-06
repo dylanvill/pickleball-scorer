@@ -6,7 +6,7 @@ import { TeamKey } from "../../../store/useTeam/types/Team";
 
 export interface FirstServerTabContentProps {
   onBackClicked: () => void;
-  onStartGameClicked: (teamKey: TeamKey) => void;
+  onStartGameClicked: (servingTeam: TeamKey) => void;
 }
 
 function FirstServerTabContent({

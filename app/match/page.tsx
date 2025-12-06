@@ -15,7 +15,7 @@ import { TeamKey } from "../../store/useTeam/types/Team";
 
 function MatchPage() {
   const matchState = useMatch();
-  const { startMatch, scorePoint, missPoint } = useMatch();
+  const { startMatch, scorePoint, missPoint, undo } = useMatch();
   const [selectedTeam, setSelectedTeam] = useState<TeamKey>("A");
 
   return (
@@ -49,20 +49,20 @@ function MatchPage() {
             <Stack direction="row" align="center" gap={2}>
               <Text>Starting Team:</Text>
               <ButtonGroup variant="outline">
-                <Button 
+                <Button
                   colorScheme={selectedTeam === "A" ? "blue" : "gray"}
-                  onClick={() => setSelectedTeam("A")}
-                >
+                  onClick={() => setSelectedTeam("A")}>
                   Team A
                 </Button>
-                <Button 
+                <Button
                   colorScheme={selectedTeam === "B" ? "blue" : "gray"}
-                  onClick={() => setSelectedTeam("B")}
-                >
+                  onClick={() => setSelectedTeam("B")}>
                   Team B
                 </Button>
               </ButtonGroup>
-              <Button colorScheme="green" onClick={() => startMatch(selectedTeam)}>
+              <Button
+                colorScheme="green"
+                onClick={() => startMatch(selectedTeam)}>
                 Start Match
               </Button>
             </Stack>
@@ -85,6 +85,13 @@ function MatchPage() {
             </ButtonGroup>
           </Box>
         )}
+        {/* Reset Button */}
+        <Button
+          variant="outline"
+          colorScheme="gray"
+          onClick={undo}>
+            Undo
+        </Button>
 
         {/* Reset Button */}
         <Button
