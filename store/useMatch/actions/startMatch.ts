@@ -16,8 +16,7 @@ const startMatch =
           A: 0,
           B: 0,
         },
-      },
-      history: [...state.history, withHistory(state)],
+      }
     };
   };
 
