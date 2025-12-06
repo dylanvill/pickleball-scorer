@@ -1,3 +1,4 @@
+import { withHistory } from "../helpers/withHistory";
 import MatchState from "../types/MatchState";
 
 const missPoint =
@@ -16,6 +17,7 @@ const missPoint =
           currentServer: 1,
           ballPossession: currentTeam === "A" ? "B" : "A",
         },
+        history: [...state.history, withHistory(state)],
       };
     } else {
       return {
@@ -24,6 +26,7 @@ const missPoint =
           ...state.match,
           currentServer: 2,
         },
+        history: [...state.history, withHistory(state)],
       };
     }
   };

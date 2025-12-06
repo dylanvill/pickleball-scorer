@@ -1,4 +1,5 @@
 import { TeamKey } from "../../useTeam/types/Team";
+import { withHistory } from "../helpers/withHistory";
 import MatchState from "../types/MatchState";
 
 const startMatch =
@@ -16,6 +17,7 @@ const startMatch =
           B: 0,
         },
       },
+      history: [...state.history, withHistory(state)],
     };
   };
 

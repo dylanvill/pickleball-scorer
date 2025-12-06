@@ -1,3 +1,4 @@
+import { withHistory } from "../helpers/withHistory";
 import MatchState from "../types/MatchState";
 
 const scorePoint =
@@ -15,6 +16,7 @@ const scorePoint =
           [scoringTeam]: currentPoints + 1,
         },
       },
+      history: [...state.history, withHistory(state)],
     };
   };
 
