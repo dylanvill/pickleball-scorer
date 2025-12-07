@@ -1,10 +1,11 @@
 "use client";
 
-import { Box, Button, HStack, Stack } from "@chakra-ui/react";
+import { Box, Button, HStack, Separator, Stack } from "@chakra-ui/react";
 import Scoreboard from "../../components/Scoreboard";
 import TeamCard from "../../components/Scoreboard/TeamCard";
 import useMatch from "../../store/useMatch";
 import useTeam from "../../store/useTeam";
+import MatchControls from "../../components/MatchControls";
 
 function MatchPage() {
   const { match, history, scorePoint, missPoint, undo } = useMatch();
@@ -15,7 +16,7 @@ function MatchPage() {
   return (
     <Box>
       <Scoreboard />
-      <Stack marginTop={8}>
+      <Stack marginTop={4}>
         <TeamCard
           teamName={teams.A.name}
           isServing={match.ballPossession === "A"}
@@ -29,7 +30,7 @@ function MatchPage() {
           players={[teams.B.players[1].name, teams.B.players[2].name]}
         />
       </Stack>
-      <HStack display="flex" marginTop={8}>
+      <HStack display="flex" marginTop={4}>
         <Button flexGrow={1} colorPalette="red" onClick={missPoint}>
           Miss
         </Button>
@@ -42,6 +43,8 @@ function MatchPage() {
           Undo
         </Button>
       )}
+      <Separator marginY={8} />
+      <MatchControls />
     </Box>
   );
 }
