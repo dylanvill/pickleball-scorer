@@ -5,19 +5,7 @@ import startMatch from "./actions/startMatch";
 import scorePoint from "./actions/scorePoint";
 import missPoint from "./actions/missPoint";
 import undo from "./actions/undo";
-
-const initialState: MatchState = {
-  match: {
-    isActive: false,
-    ballPossession: null,
-    currentServer: null,
-    points: {
-      A: 0,
-      B: 0,
-    },
-  },
-  history: [],
-};
+import initialState from "./helpers/initialState";
 
 const useMatch = create<MatchState & MatchActions>((set) => ({
   ...initialState,

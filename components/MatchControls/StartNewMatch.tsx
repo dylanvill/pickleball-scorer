@@ -18,7 +18,7 @@ function StartNewMatch() {
         <Dialog.Positioner padding={4}>
           <Dialog.Content padding={4}>
             <Dialog.Header padding={0}>
-              <Dialog.Title>Confirmation</Dialog.Title>
+              <Dialog.Title>Start New Match</Dialog.Title>
             </Dialog.Header>
             <Dialog.Body padding={0}>
               Are you sure you want to start a new match?
