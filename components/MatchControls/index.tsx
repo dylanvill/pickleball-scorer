@@ -1,5 +1,6 @@
 import { Button, Card, Heading, HStack, Stack } from "@chakra-ui/react";
 import { LuSettings } from "react-icons/lu";
+import StartNewMatch from "./StartNewMatch";
 
 function MatchControls() {
   return (
@@ -14,8 +15,11 @@ function MatchControls() {
       </Card.Header>
       <Card.Body padding={0} paddingTop={4}>
         <Stack gap={2}>
-          <Button width="full">Start New Match</Button>
-          <Button width="full" variant="outline">Reset Current Match</Button>
+          <StartNewMatch />
+          {/* <Button width="full">Start New Match</Button> */}
+          <Button width="full" variant="outline">
+            Reset Current Match
+          </Button>
         </Stack>
       </Card.Body>
     </Card.Root>
