@@ -7,10 +7,11 @@ import useMatch from "../../store/useMatch";
 import useTeam from "../../store/useTeam";
 
 function MatchPage() {
-  const { match, scorePoint, missPoint, undo } = useMatch();
+  const { match, history, scorePoint, missPoint, undo } = useMatch();
 
   const teams = useTeam((state) => state.teams);
 
+  const canUndo = history && history.length > 0;
   return (
     <Box>
       <Scoreboard />
@@ -36,9 +37,11 @@ function MatchPage() {
           Point
         </Button>
       </HStack>
-      <Button variant="outline" marginTop={4} width="full" onClick={undo}>
-        Undo
-      </Button>
+      {canUndo && (
+        <Button variant="outline" marginTop={4} width="full" onClick={undo}>
+          Undo
+        </Button>
+      )}
     </Box>
   );
 }
