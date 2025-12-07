@@ -11,8 +11,8 @@ function Scoreboard() {
     number
   ] => {
     return match.ballPossession === "A"
-      ? [match.points.B, match.points.A]
-      : [match.points.A, match.points.B];
+      ? [match.points.A, match.points.B]
+      : [match.points.B, match.points.A];
   }, [match.points, match.ballPossession]);
 
   return (
