@@ -19,7 +19,7 @@ export default function Home() {
 
   const handleStartGameClicked = (servingTeam: TeamKey) => {
     startMatch(servingTeam);
-    router.push("/match");
+    router.replace("/match");
   };
 
   return (

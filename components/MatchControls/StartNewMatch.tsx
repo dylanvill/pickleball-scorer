@@ -1,6 +1,13 @@
 import { Button, Dialog, Portal } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 
 function StartNewMatch() {
+  const router = useRouter();
+
+  const handleYesClicked = () => {
+    router.replace("/");
+  };
+
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -20,7 +27,7 @@ function StartNewMatch() {
               <Dialog.ActionTrigger asChild>
                 <Button variant="outline">Cancel</Button>
               </Dialog.ActionTrigger>
-              <Button>Yes</Button>
+              <Button onClick={handleYesClicked}>Yes</Button>
             </Dialog.Footer>
           </Dialog.Content>
         </Dialog.Positioner>
