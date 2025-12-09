@@ -5,6 +5,7 @@ import TeamState from "./types/TeamState";
 import TeamActions from "./types/TeamActions";
 import setPlayerName from "./actions/setPlayerName";
 import setDefaultPlayerNames from "./actions/setDefaultPlayerNames";
+import { persist } from "zustand/middleware";
 
 const initialState: TeamState = {
   teams: {
@@ -25,14 +26,28 @@ const initialState: TeamState = {
   },
 };
 
-const useTeam = create<TeamState & TeamActions>((set) => ({
-  ...initialState,
-  setPlayerName: (team: TeamKey, playerNumber: PlayerNumber, name: string) => {
-    set(setPlayerName(team, playerNumber, name));
-  },
-  setDefaultPlayerNames: () => {
-    set(setDefaultPlayerNames());
-  },
-}));
+const useTeam = create<TeamState & TeamActions>()(
+  persist(
+    (set) => ({
+      ...initialState,
+      setPlayerName: (
+        team: TeamKey,
+        playerNumber: PlayerNumber,
+        name: string
+      ) => {
+        set(setPlayerName(team, playerNumber, name));
+      },
+      setDefaultPlayerNames: () => {
+        set(setDefaultPlayerNames());
+      },
+    }),
+    {
+      name: "team-storage", // unique name for localStorage key
+      partialize: (state) => ({
+        teams: state.teams,
+      }), // Only persist state, not actions
+    }
+  )
+);
 
 export default useTeam;
