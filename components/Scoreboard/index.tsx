@@ -1,4 +1,4 @@
-import { HStack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Link, Text, VStack } from "@chakra-ui/react";
 import ScoreBox from "./ScoreBox";
 import useMatch from "../../store/useMatch";
 import { useMemo } from "react";
@@ -17,9 +17,20 @@ function Scoreboard() {
 
   return (
     <VStack gap={2}>
-      <Text fontSize="lg" fontWeight="bold">
-        Score
-      </Text>
+      <VStack gap={0} marginBottom={4}>
+        <Text fontSize="lg" fontWeight="bold" marginBottom={0}>
+          Scoreboard
+        </Text>
+        <Text textStyle="sm">
+          Created by{" "}
+          <Link
+            href="http://instagram.com/filmandvlogswithdylan"
+            variant="underline"
+            colorPalette="blue">
+            @filmandvlogswithdylan
+          </Link>
+        </Text>
+      </VStack>
       <HStack gap={1}>
         <ScoreBox value={servingTeamScore} />
         <ScoreBox value={receivingTeamScore} />
