@@ -5,7 +5,7 @@ import Scoreboard from "../../components/Scoreboard";
 import TeamCard from "../../components/Scoreboard/TeamCard";
 import useMatch from "../../store/useMatch";
 import useTeam from "../../store/useTeam";
-import MatchControls from "../../components/MatchControls";
+import EndCurrentMatch from "../../components/EndCurrentMatch";
 
 function MatchPage() {
   const { match, history, scorePoint, missPoint, undo } = useMatch();
@@ -44,7 +44,7 @@ function MatchPage() {
         </Button>
       )}
       <Separator marginY={8} />
-      <MatchControls />
+      <EndCurrentMatch />
     </Box>
   );
 }
