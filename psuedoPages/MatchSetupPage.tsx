@@ -6,15 +6,22 @@ import OnboardingTabs, {
 } from "@components/OnboardingTabs";
 import PlayersTabContent from "@components/OnboardingTabs/PlayersTabContent";
 import FirstServerTabContent from "@components/OnboardingTabs/FirstServerTabContent";
+import useTeam from "../store/useTeam";
 
 type ActiveTab = OnboardingTabsProps["activeTab"];
 
 function MatchSetupPage() {
   const [activeTab, setActiveTab] = useState<ActiveTab>("players");
   const { startMatch } = useMatch();
+  const { clearDefaultPlayerNames } = useTeam();
 
   const handleStartGameClicked = (servingTeam: TeamKey) => {
     startMatch(servingTeam);
+  };
+
+  const handleBackClicked = () => {
+    clearDefaultPlayerNames();
+    setActiveTab("players");
   };
 
   return (
@@ -25,7 +32,7 @@ function MatchSetupPage() {
       firstServerComponent={
         <FirstServerTabContent
           onStartGameClicked={handleStartGameClicked}
-          onBackClicked={() => setActiveTab("players")}
+          onBackClicked={handleBackClicked}
         />
       }
       activeTab={activeTab}

@@ -6,6 +6,7 @@ import TeamActions from "./types/TeamActions";
 import setPlayerName from "./actions/setPlayerName";
 import setDefaultPlayerNames from "./actions/setDefaultPlayerNames";
 import { persist } from "zustand/middleware";
+import clearDefaultPlayerNames from "./actions/clearDefaultPlayerNames";
 
 const initialState: TeamState = {
   teams: {
@@ -39,6 +40,9 @@ const useTeam = create<TeamState & TeamActions>()(
       },
       setDefaultPlayerNames: () => {
         set(setDefaultPlayerNames());
+      },
+      clearDefaultPlayerNames: () => {
+        set(clearDefaultPlayerNames());
       },
     }),
     {

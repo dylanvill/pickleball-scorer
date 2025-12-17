@@ -10,6 +10,8 @@ interface TeamActions {
   ) => void;
   /** Sets the player names to their default values */
   setDefaultPlayerNames: () => void;
+  /** Clears the player names */
+  clearDefaultPlayerNames: () => void;
 }
 
 export default TeamActions;

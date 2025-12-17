@@ -1,14 +1,16 @@
 import { Button, Dialog, Portal } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
 import useMatch from "@store/useMatch";
+import useTeam from "../store/useTeam";
 
 function EndCurrentMatch() {
-  const router = useRouter();
   const endMatch = useMatch((state) => state.endMatch);
+  const clearDefaultPlayerNames = useTeam(
+    (state) => state.clearDefaultPlayerNames
+  );
 
   const handleYesClicked = () => {
     endMatch();
-    router.replace("/");
+    clearDefaultPlayerNames();
   };
 
   return (
