@@ -18,15 +18,15 @@ function Scoreboard() {
   return (
     <VStack gap={2}>
       <VStack gap={0} marginBottom={4}>
-        <Text fontSize="lg" fontWeight="bold" marginBottom={0}>
+        <Text fontSize="lg">
           Scoreboard
         </Text>
-        <Text textStyle="sm">
+        <Text textStyle="xs" color="gray.500">
           Created by{" "}
           <Link
             href="http://instagram.com/filmandvlogswithdylan"
             variant="underline"
-            colorPalette="blue">
+            color="gray.600">
             @filmandvlogswithdylan
           </Link>
         </Text>
