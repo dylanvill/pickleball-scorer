@@ -20,7 +20,9 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@components/*": ["./components/*"]
+      "@components/*": ["./components/*"],
+      "@store/*": ["./store/*"],
+      "@psuedoPages/*": ["./psuedoPages/*"]
     }
   },
   "include": [

@@ -1,11 +1,10 @@
-"use client";
-
+import React from "react";
+import useTeam from "@store/useTeam";
+import useMatch from "@store/useMatch";
 import { Box, Button, HStack, Separator, Stack } from "@chakra-ui/react";
-import Scoreboard from "../../components/Scoreboard";
-import TeamCard from "../../components/Scoreboard/TeamCard";
-import useMatch from "../../store/useMatch";
-import useTeam from "../../store/useTeam";
-import EndCurrentMatch from "../../components/EndCurrentMatch";
+import Scoreboard from "@components/Scoreboard";
+import TeamCard from "@components/Scoreboard/TeamCard";
+import EndCurrentMatch from "@components/EndCurrentMatch";
 
 function MatchPage() {
   const { match, history, scorePoint, missPoint, undo } = useMatch();
