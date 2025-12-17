@@ -1,7 +1,7 @@
 import { Heading, Input } from "@chakra-ui/react";
 import { Field } from "@chakra-ui/react";
 import { Card } from "@chakra-ui/react";
-import { TeamKey } from "../../../store/useTeam/types/Team";
+import { TeamKey } from "@store/useTeam/types/Team";
 import usePlayerNames from "./hooks/usePlayerNames";
 
 export interface TeamFormProps {

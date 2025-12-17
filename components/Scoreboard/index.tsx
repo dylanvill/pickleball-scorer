@@ -1,6 +1,6 @@
 import { HStack, Link, Text, VStack } from "@chakra-ui/react";
 import ScoreBox from "./ScoreBox";
-import useMatch from "../../store/useMatch";
+import useMatch from "@store/useMatch";
 import { useMemo } from "react";
 
 function Scoreboard() {

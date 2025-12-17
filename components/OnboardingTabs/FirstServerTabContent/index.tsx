@@ -2,7 +2,7 @@ import { Button, RadioCard, Stack } from "@chakra-ui/react";
 import { useState } from "react";
 import ServerCard from "./ServerCard";
 import useServerSelectionData from "./hooks/useServerSelectionData";
-import { TeamKey } from "../../../store/useTeam/types/Team";
+import { TeamKey } from "@store/useTeam/types/Team";
 
 export interface FirstServerTabContentProps {
   onBackClicked: () => void;

@@ -1,6 +1,6 @@
 import { Button, Dialog, Portal } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
-import useMatch from "../store/useMatch";
+import useMatch from "@store/useMatch";
 
 function EndCurrentMatch() {
   const router = useRouter();

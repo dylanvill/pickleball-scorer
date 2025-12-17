@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import useTeam from "../../../../store/useTeam";
-import { PlayerNumber } from "../../../../store/useTeam/types/Player";
-import { TeamKey } from "../../../../store/useTeam/types/Team";
+import useTeam from "@store/useTeam";
+import { PlayerNumber } from "@store/useTeam/types/Player";
+import { TeamKey } from "@store/useTeam/types/Team";
 
 export interface usePlayerNamesProps {
   teamKey: TeamKey;

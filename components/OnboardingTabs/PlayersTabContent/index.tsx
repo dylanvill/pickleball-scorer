@@ -1,6 +1,6 @@
 import { Button, Stack } from "@chakra-ui/react";
 import TeamForm from "./TeamForm";
-import useTeam from "../../../store/useTeam";
+import useTeam from "@store/useTeam";
 
 export interface PlayersTabContentProps {
   onNextClicked: () => void;

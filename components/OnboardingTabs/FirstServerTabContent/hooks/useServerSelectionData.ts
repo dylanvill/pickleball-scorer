@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import useTeam from "../../../../store/useTeam";
-import { TeamKey } from "../../../../store/useTeam/types/Team";
-import { PlayerNumber } from "../../../../store/useTeam/types/Player";
+import useTeam from "@store/useTeam";
+import { TeamKey } from "@store/useTeam/types/Team";
+import { PlayerNumber } from "@store/useTeam/types/Player";
 
 export interface SelectionTeamPlayerInfo {
   playerNumber: PlayerNumber;
