@@ -1,17 +1,10 @@
 import useTeam from "@store/useTeam";
 import useMatch from "@store/useMatch";
-import {
-  Box,
-  Button,
-  HStack,
-  Link,
-  Separator,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, HStack, Separator, Stack, Text } from "@chakra-ui/react";
 import Scoreboard from "@components/Scoreboard";
 import TeamCard from "@components/Scoreboard/TeamCard";
 import EndCurrentMatch from "@components/EndCurrentMatch";
+import { LuInstagram } from "react-icons/lu";
 
 function MatchPage() {
   const { match, history, scorePoint, missPoint, undo } = useMatch();
@@ -49,17 +42,21 @@ function MatchPage() {
           Undo
         </Button>
       )}
-      <HStack display="flex" alignItems="center" justifyItems="center" marginY={6}>
-        <Separator flex={1}/>
-        <Text fontSize={10} color="gray.500">
-          Created by{" "}
-          <Link
-            href="http://instagram.com/filmandvlogswithdylan"
-            color="gray.700">
-            @filmandvlogswithdylan
-          </Link>
-        </Text>
-        <Separator flex={1}/>
+      <HStack
+        display="flex"
+        alignItems="center"
+        justifyItems="center"
+        marginY={6}>
+        <Separator flex={1} />
+        <HStack gap={1}>
+          <Box color="gray.400">
+            <LuInstagram size={10} />
+          </Box>
+          <Text fontSize={10} color="gray.400">
+            filmandvlogswithdylan
+          </Text>
+        </HStack>
+        <Separator flex={1} />
       </HStack>
       <EndCurrentMatch />
     </Box>
