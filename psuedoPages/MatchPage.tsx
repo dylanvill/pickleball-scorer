@@ -1,4 +1,3 @@
-import React from "react";
 import useTeam from "@store/useTeam";
 import useMatch from "@store/useMatch";
 import { Box, Button, HStack, Separator, Stack } from "@chakra-ui/react";
