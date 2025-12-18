@@ -25,19 +25,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Provider>
-        <Box
-          p={4}
-          backgroundColor="bg.subtle"
-          height="full"
-          minHeight="100vh"
-          as="body"
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <Box maxWidth="lg" margin="0 auto">
-            {children}
+      <body>
+        <Provider>
+          <Box
+            p={4}
+            backgroundColor="bg.subtle"
+            height="full"
+            minHeight="100vh"
+            as="main"
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <Box maxWidth="lg" margin="0 auto">
+              {children}
+            </Box>
           </Box>
-        </Box>
-      </Provider>
+        </Provider>
+      </body>
     </html>
   );
 }

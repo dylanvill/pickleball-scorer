@@ -1,6 +1,14 @@
 import useTeam from "@store/useTeam";
 import useMatch from "@store/useMatch";
-import { Box, Button, HStack, Separator, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  HStack,
+  Link,
+  Separator,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import Scoreboard from "@components/Scoreboard";
 import TeamCard from "@components/Scoreboard/TeamCard";
 import EndCurrentMatch from "@components/EndCurrentMatch";
@@ -41,7 +49,18 @@ function MatchPage() {
           Undo
         </Button>
       )}
-      <Separator marginY={8} />
+      <HStack display="flex" alignItems="center" justifyItems="center" marginY={6}>
+        <Separator flex={1}/>
+        <Text fontSize={10} color="gray.500">
+          Created by{" "}
+          <Link
+            href="http://instagram.com/filmandvlogswithdylan"
+            color="gray.700">
+            @filmandvlogswithdylan
+          </Link>
+        </Text>
+        <Separator flex={1}/>
+      </HStack>
       <EndCurrentMatch />
     </Box>
   );
